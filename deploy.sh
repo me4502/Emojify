@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 BRANCH=gh-pages
-TARGET_REPO=me4502/me4502.github.io.git
+TARGET_REPO=me4502/Emojify.git
 PELICAN_OUTPUT_FOLDER=output
 
 echo -e "Testing travis-encrypt"
