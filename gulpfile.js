@@ -7,7 +7,7 @@ const webpack     = require('webpack-stream');
 gulp.task('transpile', function() {
     return gulp.src(['js/main.js'])
         .pipe(webpack({
-            mode: 'development',
+            mode: 'production',
             devtool : 'source-map',
             output: {
                 filename: 'packed.js',
@@ -28,19 +28,19 @@ gulp.task('transpile', function() {
                 ]
             }
         }))
-        .pipe(gulp.dest("../src/main/resources/static/js"))
+        .pipe(gulp.dest("docs/js"))
         .pipe(browserSync.stream());
 });
 
 gulp.task('copy_html', function() {
     return gulp.src(['html/*.html'])
-        .pipe(gulp.dest("../src/main/resources/static"))
+        .pipe(gulp.dest("docs"))
         .pipe(browserSync.stream());
 });
 
 gulp.task('copy_css', function() {
     return gulp.src(['css/*.css'])
-        .pipe(gulp.dest("../src/main/resources/static/css"))
+        .pipe(gulp.dest("docs/css"))
         .pipe(browserSync.stream());
 });
 
@@ -54,12 +54,12 @@ gulp.task('watch_compile', ['transpile', 'copy_html', 'copy_css'], function() {
 gulp.task('serve', ['transpile', 'copy_html', 'copy_css'], function() {
 
     browserSync.init({
-        server: "../src/main/resources/static"
+        server: "docs"
     });
 
     gulp.watch(['js/*.js'], ['transpile']);
-    gulp.watch("../src/main/resources/static/html/*.html").on('change', browserSync.reload);
-    gulp.watch("../src/main/resources/static/js/*.js").on('change', browserSync.reload);
+    gulp.watch("docs/*.html").on('change', browserSync.reload);
+    gulp.watch("docs/js/*.js").on('change', browserSync.reload);
 });
 
 gulp.task('compile', ['transpile', 'copy_html', 'copy_css']);
