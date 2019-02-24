@@ -7,7 +7,7 @@ const webpack     = require('webpack-stream');
 gulp.task('transpile', function() {
     return gulp.src(['js/main.js'])
         .pipe(webpack({
-            mode: 'development',
+            mode: 'production',
             devtool : 'source-map',
             output: {
                 filename: 'packed.js',
