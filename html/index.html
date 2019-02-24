@@ -6,43 +6,54 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
           media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/main.css" media="screen,projection"/>
 </head>
 <body>
 
 <!-- Navbar -->
-<nav>
-    <div class="nav-wrapper">
-        <a href="/" class="brand-logo center">Emojify</a>
-    </div>
-</nav>
+<header>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="/" class="brand-logo center">Emojify</a>
+        </div>
+    </nav>
+</header>
 
-<div class="container">
-    <!-- Content -->
-    <br/>
-    <br/>
-    <div class="row">
-        <div class="input-field col s12">
-            <i class="material-icons prefix">music_note</i>
-            <textarea id="text_input" class="materialize-textarea"></textarea>
-            <label for="text_input">Enter your lyrics or text to Emojify~~~</label>
+<main>
+    <div class="container">
+        <!-- Content -->
+        <br/>
+        <br/>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">music_note</i>
+                <textarea id="text_input" class="materialize-textarea"></textarea>
+                <label for="text_input">Enter your lyrics or text to Emojify~~~</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s4 offset-s5">
+                <a class="waves-effect waves-light btn" onclick="main.emojify()"><i class="material-icons left">whatshot</i>Emojify</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea id="text_output" class="materialize-textarea" hidden></textarea>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col s4 offset-s5">
-            <a class="waves-effect waves-light btn" onclick="main.emojify()"><i class="material-icons left">whatshot</i>Emojify</a>
+</main>
+
+<footer class="page-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <p>© Matthew Miller (Me4502)</p>
+                <p>Check this out on 🔛  <a href="https://github.com/Me4502/Emojify">GitHub</a> and leave 🍂  a star! ⭐  😄</p>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="input-field col s12">
-            <textarea id="text_output" class="materialize-textarea" hidden></textarea>
-        </div>
-    </div>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <small>Check this out on 🔛  <a href="https://github.com/Me4502/Emojify">GitHub</a> and leave 🍂  a star! ⭐  😄</small>
-</div>
+</footer>
 
 <!-- Footer -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
