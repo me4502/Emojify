@@ -1,0 +1,11 @@
+.idea/
+.gradle/
+out/
+*.class
+*.iml
+node_modules/
+build/
+*~
+.terraform/
+*.tfstate
+*.tfstate.*
