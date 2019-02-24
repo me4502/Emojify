@@ -40,6 +40,7 @@ function cleanWord(word) {
         .replace("?", "")
         .replace("!", "")
         .replace(",", "")
+        .replace("\"", "")
         .replace(".", "");
     return word.toLowerCase();
 }
