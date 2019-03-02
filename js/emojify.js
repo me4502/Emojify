@@ -40,6 +40,8 @@ function cleanWord(word) {
         .replace("?", "")
         .replace("!", "")
         .replace(",", "")
+        .replace(":", "")
+        .replace("\"", "")
         .replace("\"", "")
         .replace(".", "");
     return word.toLowerCase();
@@ -49,11 +51,27 @@ function emojifyWord(word) {
     let emoji = translate.getEmojiForWord(word);
     if (!emoji) {
         // Do some custom overrides
-        if (word.endsWith("'s") && translate.getEmojiForWord(word.substring(0, word.length - 2))) {
-            return translate.getEmojiForWord(word.substring(0, word.length - 2));
+        if (word.endsWith("'s")) {
+            const e = translate.getEmojiForWord(word.substring(0, word.length - 2));
+            if (e) {
+                return e;
+            }
         }
-        if (word.endsWith("'") && translate.getEmojiForWord(word.substring(0, word.length - 1) + "g")) {
-            return translate.getEmojiForWord(word.substring(0, word.length - 1) + "g");
+        if (word.endsWith("'")) {
+            const e = translate.getEmojiForWord(word.substring(0, word.length - 1) + "g");
+            if (e) {
+                return e;
+            }
+        }
+        if (word.includes("-")) {
+            let modifiedWord = word;
+            while (modifiedWord.includes("-")) {
+                modifiedWord = modifiedWord.split("-", 2)[1];
+                const e = translate.getEmojiForWord(modifiedWord);
+                if (e) {
+                    return e;
+                }
+            }
         }
 
         // Specific words
