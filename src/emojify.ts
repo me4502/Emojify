@@ -1,24 +1,44 @@
 import translate from 'moji-translate';
 
-export function emojify(inputText: string): string {
+interface EmojifyOptions {
+  replace?: boolean;
+  /* Chance of replacing words with emojis when replace is enabled. 1 means always 0 means never. */
+  replaceChance?: number;
+  tripleCooldown?: number;
+  tripleChance?: number;
+}
+
+export function emojify(
+  inputText: string,
+  {
+    replace = false,
+    replaceChance = 1,
+    tripleCooldown = 3,
+    tripleChance = 0.05,
+  }: EmojifyOptions = {}
+): string {
   const lines = inputText.split(/\n/);
   const outputLines = [];
   const missingWords = [];
   for (const line of lines) {
     const words = line.split(' ');
-    let lastTriple = 1000;
+    let lastTriple = 99999;
     for (const i in words) {
       const word = words[i];
       const cleanedWord = cleanWord(word);
       let emoji = emojifyWord(cleanedWord);
       if (emoji) {
-        if (Math.random() > 0.95 && lastTriple > 3) {
+        if (Math.random() < tripleChance && lastTriple > tripleCooldown) {
           emoji = emoji + emoji + emoji;
           lastTriple = 0;
         } else {
           lastTriple++;
         }
-        words[i] = word + ' ' + emoji + ' ';
+        if (replace && Math.random() < replaceChance) {
+          words[i] = emoji;
+        } else {
+          words[i] = word + ' ' + emoji + ' ';
+        }
       } else {
         missingWords.push(cleanedWord);
       }
