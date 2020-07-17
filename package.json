@@ -1,12 +1,13 @@
 {
     "name": "emojify-lyrics",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "Making the world a :slight_smile: place",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "license": "MIT",
     "author": "Matthew Miller",
     "dependencies": {
+        "emojilib": "^2.4.0",
         "moji-translate": "^1.0.8"
     },
     "scripts": {
