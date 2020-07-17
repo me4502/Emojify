@@ -1,8 +1,40 @@
-import {lib} from 'emojilib';
 import translate from 'moji-translate';
+import {lib} from 'emojilib';
 import * as emojiOverridesJson from './overrides.json';
 
-const emojiOverrides = emojiOverridesJson as {[key: string]: string[]};
+type EmojiMap = {[key: string]: string[]};
+
+const emojiOverrides = emojiOverridesJson as EmojiMap;
+
+let _emojiMap: EmojiMap | undefined = undefined;
+
+function getEmojiMap(): EmojiMap {
+  if (_emojiMap) {
+    return _emojiMap;
+  }
+  _emojiMap = Object.keys(lib).reduce((obj, emojiKey) => {
+    const emoji = lib[emojiKey];
+    obj[emoji.char] = emoji.keywords.reduce((a, b) => {
+      a.push(...b.split('-'));
+      return a;
+    }, [] as string[]);
+    obj[emoji.char].push(emojiKey);
+    obj[emoji.char].push(...emojiKey.split('_'));
+    obj[emoji.char] = obj[emoji.char].filter(
+      (w) =>
+        w !== 'and' && w !== 'in' && w !== 'with' && w !== 'of' && w !== 'a'
+    );
+    return obj;
+  }, {} as EmojiMap);
+
+  for (const override in emojiOverrides) {
+    _emojiMap[override] = (_emojiMap[override] ?? []).concat(
+      emojiOverrides[override]
+    );
+  }
+
+  return _emojiMap!;
+}
 
 interface EmojifyOptions {
   replace?: boolean;
@@ -89,7 +121,19 @@ function cleanWord(word: string): string {
 function findEmojisForWord0(word: string): string[] {
   const foundEmojis: string[] = [];
 
-  if (word === 'a' || word === 'is' || word === 'it') {
+  if (word === 'my') {
+    // Easy hack fix for a common flag issue.
+    word = 'i';
+  }
+
+  // Maintain a whitelist of <3 letter words
+  if (
+    word.length <= 2 &&
+    word !== 'i' &&
+    word !== 'he' &&
+    word !== 'we' &&
+    word !== 'no'
+  ) {
     return foundEmojis;
   }
 
@@ -101,19 +145,11 @@ function findEmojisForWord0(word: string): string[] {
     foundEmojis.push(...emojiOverrides[word]);
   }
 
-  for (let emoji in lib) {
-    if (
-      word === emoji ||
-      word + '_face' === emoji ||
-      word === lib[emoji].char ||
-      word === lib[emoji].category ||
-      lib[emoji].keywords.includes(word)
-    ) {
-      if (word.length < 3 && lib[emoji].category === 'flags') {
-        // Ignore tiny flags.
-        continue;
-      }
-      foundEmojis.push(lib[emoji].char);
+  const emojiMap = getEmojiMap();
+
+  for (let emoji in emojiMap) {
+    if (emojiMap[emoji].includes(word)) {
+      foundEmojis.push(emoji);
     }
   }
 
