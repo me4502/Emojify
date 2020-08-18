@@ -56,4 +56,19 @@ describe('emojify', () => {
             ).toMatchSnapshot();
         })
     );
+
+    it(
+        'should emojify some simple text with triple mode',
+        mockRandom(0.0, () => {
+            expect(
+                emojify(SIMPLE_TEXT, {
+                    multimojiChance: 0,
+                    replace: false,
+                    replaceChance: 0,
+                    tripleChance: 1.0,
+                    tripleCooldown: 0
+                })
+            ).toMatchSnapshot();
+        })
+    );
 });
