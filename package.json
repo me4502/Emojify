@@ -13,9 +13,14 @@
     "scripts": {
         "prepublish": "tsc",
         "build": "tsc",
-        "clean": "rm -rf dist/"
+        "clean": "rm -rf dist/",
+        "test": "jest"
     },
     "devDependencies": {
+        "@types/jest": "^26.0.10",
+        "jest": "^26.4.0",
+        "prettier": "^2.0.5",
+        "ts-jest": "^26.2.0",
         "typescript": "^3.9.7"
     }
 }
