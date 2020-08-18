@@ -171,6 +171,12 @@ const emojiModFunctions: ((word: string) => string | undefined)[] = [
     w.length > 5 && w.endsWith('ing')
       ? w.substring(0, w.length - 4)
       : undefined,
+  (w) => (w.endsWith('er') ? w.substring(0, w.length - 2) : undefined),
+  (w) => (w.endsWith('er') ? `${w.substring(0, w.length - 2)}e` : undefined),
+  (w) =>
+    w.length > 4 && w.endsWith('er')
+      ? w.substring(0, w.length - 3)
+      : undefined,
 ];
 
 function findEmojisForWord(word: string): string[] {
