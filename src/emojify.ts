@@ -92,7 +92,7 @@ export function emojify(
 
                 if (
                     Math.random() < tripleChance &&
-                    lastTriple > tripleCooldown
+                    lastTriple >= tripleCooldown
                 ) {
                     insert = insert + insert + insert;
                     lastTriple = 0;
