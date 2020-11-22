@@ -1,6 +1,6 @@
 {
     "name": "emojify-lyrics",
-    "version": "1.3.2",
+    "version": "1.3.3",
     "description": "Making the world a :slight_smile: place",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
