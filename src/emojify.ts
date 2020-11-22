@@ -1,43 +1,12 @@
-import translate from 'moji-translate';
-import { lib } from 'emojilib';
 import * as emojiOverridesJson from './overrides.json';
+const emojiMap = require('../emojiMap.json');
 
 type EmojiMap = { [key: string]: string[] };
 
 const emojiOverrides = emojiOverridesJson as EmojiMap;
 
-let _emojiMap: EmojiMap | undefined = undefined;
-
 function getEmojiMap(): EmojiMap {
-    if (_emojiMap) {
-        return _emojiMap;
-    }
-    _emojiMap = Object.keys(lib).reduce((obj, emojiKey) => {
-        const emoji = lib[emojiKey];
-        obj[emoji.char] = emoji.keywords.reduce((a, b) => {
-            a.push(...b.split('-'));
-            return a;
-        }, [] as string[]);
-        obj[emoji.char].push(emojiKey);
-        obj[emoji.char].push(...emojiKey.split('_'));
-        obj[emoji.char] = obj[emoji.char].filter(
-            w =>
-                w !== 'and' &&
-                w !== 'in' &&
-                w !== 'with' &&
-                w !== 'of' &&
-                w !== 'a'
-        );
-        return obj;
-    }, {} as EmojiMap);
-
-    for (const override in emojiOverrides) {
-        _emojiMap[override] = (_emojiMap[override] ?? []).concat(
-            emojiOverrides[override]
-        );
-    }
-
-    return _emojiMap!;
+    return emojiMap;
 }
 
 interface EmojifyOptions {
@@ -135,18 +104,12 @@ function findEmojisForWord0(word: string): string[] {
         word = 'i';
     }
 
-    // Maintain a whitelist of <3 letter words
-    if (
-        word.length <= 2 &&
-        word !== 'i' &&
-        word !== 'he' &&
-        word !== 'we' &&
-        word !== 'no'
-    ) {
+    // Maintain a whitelist of under 3 letter words
+    if (word.length <= 2 && !(word in emojiOverrides)) {
         return foundEmojis;
     }
 
-    if (translate.isMaybeAlreadyAnEmoji(word)) {
+    if (isMaybeAlreadyAnEmoji(word)) {
         return foundEmojis;
     }
 
@@ -206,8 +169,29 @@ function findEmojisForWord(word: string): string[] {
     // Run it for each functor
     emojiModFunctions
         .map(func => func(word))
-        .filter(w => w)
-        .forEach(w => foundEmojis.push(...findEmojisForWord0(w!)));
+        .forEach(w => {
+            if (w) {
+                foundEmojis.push(...findEmojisForWord0(w));
+            }
+        });
 
     return foundEmojis;
+}
+
+// Adopted from https://github.com/notwaldorf/emoji-translate/blob/master/emoji-translate.js for dependency reasons
+// MIT License, available at https://raw.githubusercontent.com/notwaldorf/emoji-translate/master/LICENSE
+
+const rangeMatcher = [
+    '\ud83c[\udf00-\udfff]', // U+1F300 to U+1F3FF
+    '\ud83d[\udc00-\ude4f]', // U+1F400 to U+1F64F
+    '\ud83d[\ude80-\udeff]' // U+1F680 to U+1F6FF
+].join('|');
+
+/**
+ * Returns true for something that's already an emoji like 🤖.
+ * @param {String} word The word to be translated
+ * @returns {Bool}
+ */
+function isMaybeAlreadyAnEmoji(word: string): boolean {
+    return word.match(rangeMatcher) !== null;
 }
