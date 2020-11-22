@@ -1,13 +1,10 @@
-import * as emojiOverridesJson from './overrides.json';
-const emojiMap = require('./emojiMap.json');
+import emojiOverridesJson from './overrides.json';
+import emojiMapJson from './emojiMap.json';
 
 type EmojiMap = { [key: string]: string[] };
 
 const emojiOverrides = emojiOverridesJson as EmojiMap;
-
-function getEmojiMap(): EmojiMap {
-    return emojiMap;
-}
+const emojiMap = emojiMapJson as EmojiMap;
 
 interface EmojifyOptions {
     replace?: boolean;
@@ -122,8 +119,6 @@ function findEmojisForWord0(word: string): string[] {
     if (emojiOverrides[word]) {
         foundEmojis.push(...emojiOverrides[word]);
     }
-
-    const emojiMap = getEmojiMap();
 
     for (let emoji in emojiMap) {
         if (emojiMap[emoji].includes(word)) {
