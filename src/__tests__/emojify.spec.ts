@@ -9,7 +9,7 @@ function mockRandom(value: number, fn: Function): (...args: any[]) => any {
     };
 }
 
-const SIMPLE_TEXT = 'he see carrot tree house';
+const SIMPLE_TEXT = 'he see carrot tree house is nice';
 
 describe('emojify', () => {
     it(
