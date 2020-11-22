@@ -1,12 +1,22 @@
 import * as emojiOverridesJson from './overrides.json';
-const emojiMap = require('../emojiMap.json');
 
 type EmojiMap = { [key: string]: string[] };
 
 const emojiOverrides = emojiOverridesJson as EmojiMap;
 
+let _emojiMap: EmojiMap | undefined = undefined;
+
 function getEmojiMap(): EmojiMap {
-    return emojiMap;
+    if (_emojiMap) {
+        return _emojiMap;
+    }
+
+    try {
+        _emojiMap = require('../emojiMap.json');
+    } catch (e) {
+        _emojiMap = require('../dist/emojiMap.json');
+    }
+    return _emojiMap!;
 }
 
 interface EmojifyOptions {
@@ -105,7 +115,13 @@ function findEmojisForWord0(word: string): string[] {
     }
 
     // Maintain a whitelist of under 3 letter words
-    if (word.length <= 2 && !(word in emojiOverrides)) {
+    if (
+        word.length <= 2 &&
+        word !== 'i' &&
+        word !== 'he' &&
+        word !== 'we' &&
+        word !== 'no'
+    ) {
         return foundEmojis;
     }
 
