@@ -21,7 +21,7 @@ async function main() {
         return obj;
     }, {});
 
-    await fs.writeFile(`dist/emojiMap.json`, JSON.stringify(emojiData));
+    await fs.writeFile(`src/emojiMap.json`, JSON.stringify(emojiData));
 }
 
 main().catch(e => console.error(e));
