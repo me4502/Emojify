@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`emojify should emojify some simple text 1`] = `"he 💁‍♂️  see 👁  carrot 🥕  tree 🎄  house 🏠 "`;
+exports[`emojify should emojify some simple text 1`] = `"he 💁‍♂️  see 👁  carrot 🥕  tree 🎄  house 🏠  is nice"`;
 
-exports[`emojify should emojify some simple text with multimoji 1`] = `"he 💁‍♂️  see 👁👀  carrot 🥕  tree 🎄🌲🌳🌴🎋  house 🏠🏡🏚🚪 "`;
+exports[`emojify should emojify some simple text with multimoji 1`] = `"he 💁‍♂️  see 👁👀  carrot 🥕  tree 🎄🌲🌳🌴🎋  house 🏠🏡🏚🚪  is nice"`;
 
-exports[`emojify should emojify some simple text with replace mode 1`] = `"💁‍♂️ 👁 🥕 🎄 🏠"`;
+exports[`emojify should emojify some simple text with replace mode 1`] = `"💁‍♂️ 👁 🥕 🎄 🏠 is nice"`;
 
-exports[`emojify should emojify some simple text with triple mode 1`] = `"he 💁‍♂️💁‍♂️💁‍♂️  see 👁👁👁  carrot 🥕🥕🥕  tree 🎄🎄🎄  house 🏠🏠🏠 "`;
+exports[`emojify should emojify some simple text with triple mode 1`] = `"he 💁‍♂️💁‍♂️💁‍♂️  see 👁👁👁  carrot 🥕🥕🥕  tree 🎄🎄🎄  house 🏠🏠🏠  is nice"`;
