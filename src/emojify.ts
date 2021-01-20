@@ -129,8 +129,27 @@ function findEmojisForWord0(word: string): string[] {
     return foundEmojis;
 }
 
+const numberToNumeral = new Map([
+    ['0', 'zero'],
+    ['1', 'one'],
+    ['2', 'two'],
+    ['3', 'three'],
+    ['4', 'four'],
+    ['5', 'five'],
+    ['6', 'six'],
+    ['7', 'seven'],
+    ['8', 'eight'],
+    ['9', 'nine']
+]);
+
+const numeralToNumber = new Map(
+    [...numberToNumeral.entries()].map(([key, val]) => [val, key])
+);
+
 const emojiModFunctions: ((word: string) => string | undefined)[] = [
     w => w,
+    w => numberToNumeral.get(w),
+    w => numeralToNumber.get(w),
     w => (w.length > 1 ? `${w}s` : undefined),
     w => (w.length > 1 ? `${w}ing` : undefined),
     w => (w.length > 1 ? `${w}ed` : undefined),
