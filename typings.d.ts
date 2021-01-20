@@ -5,11 +5,8 @@ declare module 'moji-translate' {
 }
 
 declare module 'emojilib' {
-    export interface EmojiLibEntry {
-        keywords: string[];
-        char: string;
-        category: string;
-    }
-
-    export const lib: {[key: string]: EmojiLibEntry};
+    type EmojiMap = { [key: string]: string[] };
+    
+    const lib: EmojiMap;
+    export = lib;
 }
