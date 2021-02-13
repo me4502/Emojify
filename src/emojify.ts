@@ -93,6 +93,9 @@ function cleanWord(word: string): string {
     return word.toLowerCase();
 }
 
+// Maintain an allow list of under 3 letter words
+const SMALL_WORD_ALLOW_LIST = new Set(['i', 'he', 'we', 'no']);
+
 function findEmojisForWord0(word: string): string[] {
     const foundEmojis: string[] = [];
 
@@ -101,14 +104,7 @@ function findEmojisForWord0(word: string): string[] {
         word = 'i';
     }
 
-    // Maintain a whitelist of under 3 letter words
-    if (
-        word.length <= 2 &&
-        word !== 'i' &&
-        word !== 'he' &&
-        word !== 'we' &&
-        word !== 'no'
-    ) {
+    if (word.length <= 2 && !SMALL_WORD_ALLOW_LIST.has(word)) {
         return foundEmojis;
     }
 
@@ -120,7 +116,7 @@ function findEmojisForWord0(word: string): string[] {
         foundEmojis.push(...emojiOverrides[word]);
     }
 
-    for (let emoji in emojiMap) {
+    for (const emoji in emojiMap) {
         if (emojiMap[emoji].includes(word)) {
             foundEmojis.push(emoji);
         }
@@ -148,8 +144,7 @@ const numeralToNumber = new Map(
 
 const emojiModFunctions: ((word: string) => string | undefined)[] = [
     w => w,
-    w => numberToNumeral.get(w),
-    w => numeralToNumber.get(w),
+    w => numberToNumeral.get(w) ?? numeralToNumber.get(w),
     w => (w.length > 1 ? `${w}s` : undefined),
     w => (w.length > 1 ? `${w}ing` : undefined),
     w => (w.length > 1 ? `${w}ed` : undefined),
@@ -170,7 +165,8 @@ const emojiModFunctions: ((word: string) => string | undefined)[] = [
     w =>
         w.length > 4 && w.endsWith('er')
             ? w.substring(0, w.length - 3)
-            : undefined
+            : undefined,
+    w => (w.endsWith('ies') ? `${w.substring(0, w.length - 3)}y` : undefined)
 ];
 
 function findEmojisForWord(word: string): string[] {
