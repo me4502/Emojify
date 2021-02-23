@@ -35,6 +35,9 @@ export function emojify(
 
         for (const i in words) {
             const word = words[i];
+            if (!word) {
+                continue;
+            }
             const cleanedWord = cleanWord(word);
             let emojis = findEmojisForWord(cleanedWord);
 
@@ -67,9 +70,9 @@ export function emojify(
                 }
 
                 if (replace && Math.random() < replaceChance) {
-                    words[i] = insert;
+                    words[i] = `${insert}`;
                 } else {
-                    words[i] = word + ' ' + insert + ' ';
+                    words[i] = `${word} ${insert} `;
                 }
             } else {
                 missingWords.push(cleanedWord);
