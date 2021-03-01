@@ -169,7 +169,18 @@ const emojiModFunctions: ((word: string) => string | undefined)[] = [
         w.length > 4 && w.endsWith('er')
             ? w.substring(0, w.length - 3)
             : undefined,
-    w => (w.endsWith('ies') ? `${w.substring(0, w.length - 3)}y` : undefined)
+    w =>
+        w.length > 3 && w.endsWith('ed')
+            ? w.substring(0, w.length - 2)
+            : undefined,
+    w =>
+        w.length & 4 && w.endsWith('ies')
+            ? `${w.substring(0, w.length - 3)}y`
+            : undefined,
+    w =>
+        w.length > 4 && w.endsWith('ied')
+            ? `${w.substring(0, w.length - 3)}y`
+            : undefined
 ];
 
 function findEmojisForWord(word: string): string[] {
