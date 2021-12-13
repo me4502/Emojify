@@ -180,7 +180,9 @@ const emojiModFunctions: ((word: string) => string | undefined)[] = [
     w =>
         w.length > 4 && w.endsWith('ied')
             ? `${w.substring(0, w.length - 3)}y`
-            : undefined
+            : undefined,
+    w => (w.endsWith('ieve') ? `${w.substring(0, w.length - 2)}f` : undefined),
+    w => (w.endsWith('ief') ? `${w.substring(0, w.length - 1)}ve` : undefined)
 ];
 
 function findEmojisForWord(word: string): string[] {
