@@ -1,6 +1,6 @@
 {
     "name": "emojify-lyrics",
-    "version": "1.4.5",
+    "version": "1.5.0",
     "description": "Making the world a :slight_smile: place",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -11,7 +11,7 @@
         "unicode-emoji-json": "^0.3.0"
     },
     "scripts": {
-        "prepublish": "tsc && node scripts/generateEmojiMap.js",
+        "prepublish": "node scripts/generateEmojiMap.js && tsc",
         "build": "tsc",
         "clean": "rm -rf dist/",
         "test": "jest"

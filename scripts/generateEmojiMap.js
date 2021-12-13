@@ -5,7 +5,7 @@ const data = require('unicode-emoji-json');
 async function main() {
     const emojiData = Object.keys(data).reduce((obj, emojiKey) => {
         const emoji = data[emojiKey];
-        emoji.keywords = lib[emojiKey];
+        emoji.keywords = lib[emojiKey] || [];
         obj[emojiKey] = emoji.keywords.reduce((a, b) => {
             a.push(...b.split('-'));
             return a;
