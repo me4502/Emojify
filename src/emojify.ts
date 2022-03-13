@@ -22,7 +22,7 @@ export function emojify(
         replaceChance = 1,
         tripleCooldown = 3,
         tripleChance = 0.05,
-        multimojiChance = 0.1
+        multimojiChance = 0.1,
     }: EmojifyOptions = {}
 ): string {
     const lines = inputText.split(/\n/);
@@ -39,17 +39,17 @@ export function emojify(
                 continue;
             }
             const cleanedWord = cleanWord(word);
-            let emojis = findEmojisForWord(cleanedWord);
+            const emojis = findEmojisForWord(cleanedWord);
 
             if (emojis.length > 0) {
-                function grabEmoji(): string {
+                const grabEmoji = () => {
                     const emojiIndex = Math.floor(
                         Math.random() * emojis.length
                     );
                     const emoji = emojis[emojiIndex];
                     emojis.splice(emojiIndex, 1);
                     return emoji;
-                }
+                };
 
                 const emoji = grabEmoji();
 
@@ -138,7 +138,7 @@ const numberToNumeral = new Map([
     ['6', 'six'],
     ['7', 'seven'],
     ['8', 'eight'],
-    ['9', 'nine']
+    ['9', 'nine'],
 ]);
 
 const numeralToNumber = new Map(
@@ -182,7 +182,7 @@ const emojiModFunctions: ((word: string) => string | undefined)[] = [
             ? `${w.substring(0, w.length - 3)}y`
             : undefined,
     w => (w.endsWith('ieve') ? `${w.substring(0, w.length - 2)}f` : undefined),
-    w => (w.endsWith('ief') ? `${w.substring(0, w.length - 1)}ve` : undefined)
+    w => (w.endsWith('ief') ? `${w.substring(0, w.length - 1)}ve` : undefined),
 ];
 
 function findEmojisForWord(word: string): string[] {
@@ -216,7 +216,7 @@ function findEmojisForWord(word: string): string[] {
 const rangeMatcher = [
     '\ud83c[\udf00-\udfff]', // U+1F300 to U+1F3FF
     '\ud83d[\udc00-\ude4f]', // U+1F400 to U+1F64F
-    '\ud83d[\ude80-\udeff]' // U+1F680 to U+1F6FF
+    '\ud83d[\ude80-\udeff]', // U+1F680 to U+1F6FF
 ].join('|');
 
 /**

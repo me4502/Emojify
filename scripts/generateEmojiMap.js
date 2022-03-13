@@ -12,14 +12,18 @@ async function main() {
         }, []);
         obj[emojiKey].push(emoji.slug);
         obj[emojiKey].push(...emoji.slug.split('_'));
-        obj[emojiKey] = [...new Set(obj[emojiKey].filter(
-            w =>
-                w !== 'and' &&
-                w !== 'in' &&
-                w !== 'with' &&
-                w !== 'of' &&
-                w !== 'a'
-        ))];
+        obj[emojiKey] = [
+            ...new Set(
+                obj[emojiKey].filter(
+                    w =>
+                        w !== 'and' &&
+                        w !== 'in' &&
+                        w !== 'with' &&
+                        w !== 'of' &&
+                        w !== 'a'
+                )
+            ),
+        ];
         return obj;
     }, {});
 
