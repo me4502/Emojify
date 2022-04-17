@@ -6,7 +6,7 @@ type EmojiMap = { [key: string]: string[] };
 const emojiOverrides = emojiOverridesJson as EmojiMap;
 const emojiMap = emojiMapJson as EmojiMap;
 
-interface EmojifyOptions {
+export interface EmojifyOptions {
     replace?: boolean;
     /* Chance of replacing words with emojis when replace is enabled. 1 means always 0 means never. */
     replaceChance?: number;
