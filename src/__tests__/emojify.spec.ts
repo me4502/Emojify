@@ -21,7 +21,7 @@ describe('emojify', () => {
                     replace: false,
                     replaceChance: 0,
                     tripleChance: 0,
-                    tripleCooldown: 0
+                    tripleCooldown: 0,
                 })
             ).toMatchSnapshot();
         })
@@ -36,7 +36,7 @@ describe('emojify', () => {
                     replace: false,
                     replaceChance: 0,
                     tripleChance: 0,
-                    tripleCooldown: 0
+                    tripleCooldown: 0,
                 })
             ).toMatchSnapshot();
         })
@@ -51,7 +51,7 @@ describe('emojify', () => {
                     replace: true,
                     replaceChance: 1.0,
                     tripleChance: 0,
-                    tripleCooldown: 0
+                    tripleCooldown: 0,
                 })
             ).toMatchSnapshot();
         })
@@ -66,7 +66,7 @@ describe('emojify', () => {
                     replace: false,
                     replaceChance: 0,
                     tripleChance: 1.0,
-                    tripleCooldown: 0
+                    tripleCooldown: 0,
                 })
             ).toMatchSnapshot();
         })

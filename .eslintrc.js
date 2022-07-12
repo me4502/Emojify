@@ -11,7 +11,7 @@ module.exports = {
         'prettier', // enables eslint-plugin-prettier and eslint-config-prettier
     ],
     parserOptions: {
-        ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
+        ecmaVersion: 2021, // Allows for the parsing of modern ECMAScript features
         sourceType: 'module', // Allows for the use of imports
         project: path.resolve(__dirname, './tsconfig.json'),
         tsconfigRootDir: __dirname,

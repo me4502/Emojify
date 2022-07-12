@@ -1,1 +1,0 @@
-export { emojify } from './src/emojify'; 

@@ -1,9 +1,7 @@
-import emojiOverridesJson from './overrides.json';
 import emojiMapJson from './emojiMap.json';
 
 type EmojiMap = { [key: string]: string[] };
 
-const emojiOverrides = emojiOverridesJson as EmojiMap;
 const emojiMap = emojiMapJson as EmojiMap;
 
 export interface EmojifyOptions {
@@ -96,33 +94,15 @@ function cleanWord(word: string): string {
     return word.toLowerCase();
 }
 
-// Maintain an allow list of under 3 letter words
-const SMALL_WORD_ALLOW_LIST = new Set(['i', 'he', 'we', 'no']);
-
 function findEmojisForWord0(word: string): string[] {
     const foundEmojis: string[] = [];
-
-    if (word === 'my') {
-        // Easy hack fix for a common flag issue.
-        word = 'i';
-    }
-
-    if (word.length <= 2 && !SMALL_WORD_ALLOW_LIST.has(word)) {
-        return foundEmojis;
-    }
 
     if (isMaybeAlreadyAnEmoji(word)) {
         return foundEmojis;
     }
 
-    if (emojiOverrides[word]) {
-        foundEmojis.push(...emojiOverrides[word]);
-    }
-
-    for (const emoji in emojiMap) {
-        if (emojiMap[emoji].includes(word)) {
-            foundEmojis.push(emoji);
-        }
+    if (emojiMap[word]) {
+        foundEmojis.push(...emojiMap[word]);
     }
 
     return foundEmojis;
@@ -185,27 +165,34 @@ const emojiModFunctions: ((word: string) => string | undefined)[] = [
     w => (w.endsWith('ief') ? `${w.substring(0, w.length - 1)}ve` : undefined),
 ];
 
+// Maintain an allow list of under 3 letter words
+const SMALL_WORD_ALLOW_LIST = new Set(['i', 'he', 'we', 'no']);
+
 function findEmojisForWord(word: string): string[] {
     const foundEmojis: string[] = [];
 
     // Try the word, and various permutations.
-    word = word.trim().toLowerCase();
+
+    if (word === 'my') {
+        // Easy hack fix for a common flag issue.
+        word = 'i';
+    }
+
+    if (word.length <= 2 && !SMALL_WORD_ALLOW_LIST.has(word)) {
+        return foundEmojis;
+    }
 
     // Split hyphenated words
     if (word.includes('-')) {
-        word.split('-')
-            .map(findEmojisForWord)
-            .forEach(words => foundEmojis.push(...words));
+        foundEmojis.push(...word.split('-').flatMap(findEmojisForWord));
     }
 
     // Run it for each functor
-    emojiModFunctions
-        .map(func => func(word))
-        .forEach(w => {
-            if (w) {
-                foundEmojis.push(...findEmojisForWord0(w));
-            }
-        });
+    foundEmojis.push(
+        ...emojiModFunctions
+            .map(func => func(word))
+            .flatMap(w => (w ? findEmojisForWord0(w) : []))
+    );
 
     return foundEmojis;
 }
