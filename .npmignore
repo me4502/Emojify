@@ -1,5 +1,6 @@
 .eslintignore
 .eslintrc.js
+.eslintcache
 .lintstagedrc.json
 .prettierrc
 jest.config.js
