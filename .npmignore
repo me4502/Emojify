@@ -1,0 +1,10 @@
+.eslintignore
+.eslintrc.js
+.lintstagedrc.json
+.prettierrc
+jest.config.js
+src/
+.husky/
+scripts/
+.idea/
+tsconfig.json

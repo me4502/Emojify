@@ -33,6 +33,14 @@ module.exports = {
         ],
         '@typescript-eslint/ban-types': 'warn',
         '@typescript-eslint/explicit-module-boundary-types': 'off',
+        '@typescript-eslint/consistent-type-imports': [
+            'error',
+            { prefer: 'type-imports' },
+        ],
+        '@typescript-eslint/consistent-type-exports': [
+            'error',
+            { fixMixedExportsWithInlineTypeSpecifier: true },
+        ],
 
         'prettier/prettier': 'warn',
     },

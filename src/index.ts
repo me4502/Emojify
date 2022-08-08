@@ -1,1 +1,1 @@
-export { emojify, EmojifyOptions } from './emojify.js';
+export { emojify, type EmojifyOptions } from './emojify.js';
