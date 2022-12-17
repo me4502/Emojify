@@ -1,6 +1,6 @@
 {
     "name": "emojify-lyrics",
-    "version": "1.8.0",
+    "version": "1.8.1",
     "description": "Making the world a :slight_smile: place",
     "main": "dist/cjs/index.js",
     "module": "dist/esm/index.js",
