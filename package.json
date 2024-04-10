@@ -22,19 +22,19 @@
         "postpack": "pinst --enable"
     },
     "devDependencies": {
-        "@types/jest": "^29.5.5",
+        "@types/jest": "^29.5.12",
         "@typescript-eslint/eslint-plugin": "^5.57.0",
         "@typescript-eslint/parser": "^5.57.0",
-        "emojilib": "^3.0.11",
+        "emojilib": "^3.0.12",
         "eslint": "^8.51.0",
         "husky": "^8.0.3",
         "jest": "^29.7.0",
         "lint-staged": "^14.0.1",
         "pinst": "^3.0.0",
-        "prettier": "^3.0.3",
-        "ts-jest": "^29.1.0",
-        "typescript": "^5.2.2",
-        "unicode-emoji-json": "^0.4.0"
+        "prettier": "^3.2.5",
+        "ts-jest": "^29.1.2",
+        "typescript": "^5.4.4",
+        "unicode-emoji-json": "^0.6.0"
     },
     "husky": {
         "hooks": {

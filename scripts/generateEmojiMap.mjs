@@ -1,8 +1,8 @@
 import fs from 'node:fs/promises';
 
-import lib from 'emojilib' assert { type: 'json' };
-import data from 'unicode-emoji-json' assert { type: 'json' };
-import overrides from './overrides.json' assert { type: 'json' };
+import lib from 'emojilib' with { type: 'json' };
+import data from 'unicode-emoji-json' with { type: 'json' };
+import overrides from './overrides.json' with { type: 'json' };
 
 const BANNED_WORDS = new Set(['', 'and', 'in', 'with', 'of', 'a']);
 
