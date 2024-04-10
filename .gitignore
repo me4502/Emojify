@@ -4,5 +4,7 @@ node_modules/
 build/
 dist/
 *~
+.yarn/install-state.gz
+.yarn/cache
 
 .eslintcache
