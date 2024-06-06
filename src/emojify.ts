@@ -83,13 +83,15 @@ export function emojify(
 function cleanWord(word: string): string {
     word = word
         .trim()
-        .replace('?', '')
-        .replace('!', '')
-        .replace(',', '')
-        .replace(':', '')
-        .replace('"', '')
-        .replace('"', '')
-        .replace('.', '');
+        .replaceAll('?', '')
+        .replaceAll('!', '')
+        .replaceAll(',', '')
+        .replaceAll(':', '')
+        .replaceAll('"', '')
+        .replaceAll('"', '')
+        .replaceAll('.', '')
+        .replaceAll(')', '')
+        .replaceAll('(', '');
     return word.toLowerCase();
 }
 
@@ -159,7 +161,7 @@ const emojiModFunctions: ((word: string) => string | undefined)[] = [
             ? w.slice(0, Math.max(0, w.length - 3))
             : undefined,
     w =>
-        w.length > 3 && w.endsWith('ed')
+        w.length > 4 && w.endsWith('ed')
             ? w.slice(0, Math.max(0, w.length - 2))
             : undefined,
     w =>
