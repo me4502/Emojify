@@ -1,5 +1,0 @@
-dist/
-node_modules/
-.eslintrc.js
-__tests__/
-src/emojiMap.json

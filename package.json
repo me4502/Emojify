@@ -1,43 +1,44 @@
 {
     "name": "emojify-lyrics",
-    "version": "1.10.0",
+    "version": "2.0.0",
     "description": "Making the world a :slight_smile: place",
-    "main": "dist/cjs/index.js",
-    "module": "dist/esm/index.js",
-    "types": "dist/esm/index.d.ts",
+    "module": "dist/index.js",
+    "types": "dist/index.d.ts",
     "license": "MIT",
     "author": "Madeline Miller",
+    "type": "module",
     "scripts": {
-        "prepublish": "node --experimental-json-modules scripts/generateEmojiMap.mjs && yarn build",
-        "build": "yarn tsc && yarn tsc --module commonjs --outDir dist/cjs",
+        "prepublish": "yarn generate && yarn build",
+        "generate": "node scripts/generateEmojiMap.js",
+        "build": "yarn tsc --project tsconfig.build.json",
         "clean": "rm -rf dist/",
-        "test": "yarn jest",
-        "lint": "yarn eslint --config ./.eslintrc.js --ext .ts,.js,.mts,.mjs src/ scripts/",
-        "lint:fix": "yarn eslint --config ./.eslintrc.js --fix --ext .ts,.js,.mts,.mjs src/ scripts/",
+        "test": "yarn vitest --run",
+        "lint": "yarn eslint src/ scripts/",
+        "lint:fix": "yarn eslint --fix src/ scripts/",
         "postinstall": "yarn husky",
         "precommit": "yarn lint-staged",
         "prepack": "yarn pinst --disable",
         "postpack": "yarn pinst --enable"
     },
     "devDependencies": {
-        "@types/jest": "^29.5.12",
-        "@typescript-eslint/eslint-plugin": "^5.57.0",
-        "@typescript-eslint/parser": "^5.57.0",
+        "change-case": "^5.4.4",
+        "emoji-platform-data": "^0.1.0",
         "emojilib": "^3.0.12",
-        "eslint": "^8.57.0",
+        "eslint": "^9.4.0",
+        "eslint-plugin-unicorn": "^53.0.0",
         "husky": "^9.0.11",
-        "jest": "^29.7.0",
-        "lint-staged": "^15.2.2",
+        "lint-staged": "^15.2.5",
         "pinst": "^3.0.0",
-        "prettier": "^3.2.5",
-        "ts-jest": "^29.1.2",
-        "typescript": "^5.4.4",
-        "unicode-emoji-json": "^0.6.0"
+        "prettier": "^3.3.1",
+        "typescript": "^5.4.5",
+        "typescript-eslint": "^7.12.0",
+        "unicode-emoji-json": "^0.6.0",
+        "vitest": "^1.6.0"
     },
     "husky": {
         "hooks": {
             "pre-commit": "lint-staged"
         }
     },
-    "packageManager": "yarn@4.1.1"
+    "packageManager": "yarn@4.2.2"
 }

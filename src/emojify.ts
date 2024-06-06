@@ -67,11 +67,10 @@ export function emojify(
                     lastTriple++;
                 }
 
-                if (replace && Math.random() < replaceChance) {
-                    words[i] = `${insert}`;
-                } else {
-                    words[i] = `${word} ${insert} `;
-                }
+                words[i] =
+                    replace && Math.random() < replaceChance
+                        ? `${insert}`
+                        : `${word} ${insert} `;
             } else {
                 missingWords.push(cleanedWord);
             }
@@ -131,38 +130,54 @@ const emojiModFunctions: ((word: string) => string | undefined)[] = [
     w => (w.length > 1 ? `${w}s` : undefined),
     w => (w.length > 1 ? `${w}ing` : undefined),
     w => (w.length > 1 ? `${w}ed` : undefined),
-    w => (w.endsWith("'s") ? w.substring(0, w.length - 2) : undefined),
-    w => (w.endsWith("'") ? `${w.substring(0, w.length - 1)}g` : undefined),
+    w => (w.endsWith("'s") ? w.slice(0, Math.max(0, w.length - 2)) : undefined),
+    w =>
+        w.endsWith("'")
+            ? `${w.slice(0, Math.max(0, w.length - 1))}g`
+            : undefined,
     w =>
         w.length > 2 && w.endsWith('s')
-            ? w.substring(0, w.length - 1)
+            ? w.slice(0, Math.max(0, w.length - 1))
             : undefined,
-    w => (w.endsWith('ing') ? w.substring(0, w.length - 3) : undefined),
-    w => (w.endsWith('ing') ? `${w.substring(0, w.length - 3)}e` : undefined),
+    w =>
+        w.endsWith('ing') ? w.slice(0, Math.max(0, w.length - 3)) : undefined,
+    w =>
+        w.endsWith('ing')
+            ? `${w.slice(0, Math.max(0, w.length - 3))}e`
+            : undefined,
     w =>
         w.length > 5 && w.endsWith('ing')
-            ? w.substring(0, w.length - 4)
+            ? w.slice(0, Math.max(0, w.length - 4))
             : undefined,
-    w => (w.endsWith('er') ? w.substring(0, w.length - 2) : undefined),
-    w => (w.endsWith('er') ? `${w.substring(0, w.length - 2)}e` : undefined),
+    w => (w.endsWith('er') ? w.slice(0, Math.max(0, w.length - 2)) : undefined),
+    w =>
+        w.endsWith('er')
+            ? `${w.slice(0, Math.max(0, w.length - 2))}e`
+            : undefined,
     w =>
         w.length > 4 && w.endsWith('er')
-            ? w.substring(0, w.length - 3)
+            ? w.slice(0, Math.max(0, w.length - 3))
             : undefined,
     w =>
         w.length > 3 && w.endsWith('ed')
-            ? w.substring(0, w.length - 2)
+            ? w.slice(0, Math.max(0, w.length - 2))
             : undefined,
     w =>
         w.length & 4 && w.endsWith('ies')
-            ? `${w.substring(0, w.length - 3)}y`
+            ? `${w.slice(0, Math.max(0, w.length - 3))}y`
             : undefined,
     w =>
         w.length > 4 && w.endsWith('ied')
-            ? `${w.substring(0, w.length - 3)}y`
+            ? `${w.slice(0, Math.max(0, w.length - 3))}y`
             : undefined,
-    w => (w.endsWith('ieve') ? `${w.substring(0, w.length - 2)}f` : undefined),
-    w => (w.endsWith('ief') ? `${w.substring(0, w.length - 1)}ve` : undefined),
+    w =>
+        w.endsWith('ieve')
+            ? `${w.slice(0, Math.max(0, w.length - 2))}f`
+            : undefined,
+    w =>
+        w.endsWith('ief')
+            ? `${w.slice(0, Math.max(0, w.length - 1))}ve`
+            : undefined,
 ];
 
 // Maintain an allow list of under 3 letter words
@@ -201,9 +216,9 @@ function findEmojisForWord(word: string): string[] {
 // MIT License, available at https://raw.githubusercontent.com/notwaldorf/emoji-translate/master/LICENSE
 
 const rangeMatcher = [
-    '\ud83c[\udf00-\udfff]', // U+1F300 to U+1F3FF
-    '\ud83d[\udc00-\ude4f]', // U+1F400 to U+1F64F
-    '\ud83d[\ude80-\udeff]', // U+1F680 to U+1F6FF
+    '\uD83C[\uDF00-\uDFFF]', // U+1F300 to U+1F3FF
+    '\uD83D[\uDC00-\uDE4F]', // U+1F400 to U+1F64F
+    '\uD83D[\uDE80-\uDEFF]', // U+1F680 to U+1F6FF
 ].join('|');
 
 /**
