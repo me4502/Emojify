@@ -2,7 +2,7 @@
 
 exports[`emojify > should emojify some simple text 1`] = `"he 💁‍♂️  see 👀  carrot 🥕  tree 🌲  house 🏘️  is nice relieve 😮‍💨  relief 😅 "`;
 
-exports[`emojify > should emojify some simple text with multimoji 1`] = `"he 💁‍♂️  see 👀👁️  carrot 🥕  tree 🌲🌳🌴🍃🎄  house 🏘️🏚️🏠🏡🚪🛖🪴  is nice relieve 😮‍💨😅  relief 😅😮‍💨 "`;
+exports[`emojify > should emojify some simple text with multimoji 1`] = `"he 💁‍♂️  see 👀👁️🙈🧧  carrot 🥕  tree 🌲🌳🌴🍃🎄🎋🏡  house 🏘️🏚️🏠🏡🚪🛖🪴  is nice relieve 😮‍💨😅  relief 😅😮‍💨 "`;
 
 exports[`emojify > should emojify some simple text with replace mode 1`] = `"💁‍♂️ 👀 🥕 🌲 🏘️ is nice 😮‍💨 😅"`;
 
