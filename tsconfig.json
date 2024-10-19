@@ -9,7 +9,8 @@
         "strict": true,
         "noImplicitAny": true,
         "noUnusedLocals": true,
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        "allowJs": true
     },
     "exclude": ["node_modules", "dist"]
 }

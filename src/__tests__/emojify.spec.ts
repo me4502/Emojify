@@ -3,7 +3,7 @@ import { vi, describe, it, expect } from 'vitest';
 
 function mockRandom(
     value: number,
-    fn: Function
+    fn: (...args: unknown[]) => unknown
 ): (...args: unknown[]) => unknown {
     return function (this: unknown, ...args: unknown[]) {
         vi.spyOn(Math, 'random').mockReturnValue(value);

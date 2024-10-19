@@ -11,7 +11,7 @@ export default tseslint.config(
     {
         languageOptions: {
             parserOptions: {
-                EXPERIMENTAL_useProjectService: true,
+                projectService: true,
             },
         },
         rules: {
@@ -24,7 +24,6 @@ export default tseslint.config(
                 'error',
                 { argsIgnorePattern: '^_' },
             ],
-            '@typescript-eslint/ban-types': 'warn',
             '@typescript-eslint/explicit-module-boundary-types': 'off',
             '@typescript-eslint/consistent-type-imports': [
                 'error',
