@@ -161,6 +161,16 @@ const emojiModFunctions: ((word: string) => string | undefined)[] = [
             ? w.slice(0, Math.max(0, w.length - 3))
             : undefined,
     w =>
+        w.endsWith('ers') ? w.slice(0, Math.max(0, w.length - 3)) : undefined,
+    w =>
+        w.endsWith('ers')
+            ? `${w.slice(0, Math.max(0, w.length - 3))}e`
+            : undefined,
+    w =>
+        w.length > 5 && w.endsWith('ers')
+            ? w.slice(0, Math.max(0, w.length - 4))
+            : undefined,
+    w =>
         w.length > 4 && w.endsWith('ed')
             ? w.slice(0, Math.max(0, w.length - 2))
             : undefined,
