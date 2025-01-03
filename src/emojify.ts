@@ -11,6 +11,8 @@ export interface EmojifyOptions {
     tripleCooldown?: number;
     tripleChance?: number;
     multimojiChance?: number;
+    /* Allow flag emojis in the output. */
+    allowFlags?: boolean;
 }
 
 export function emojify(
@@ -21,6 +23,7 @@ export function emojify(
         tripleCooldown = 3,
         tripleChance = 0.05,
         multimojiChance = 0.1,
+        allowFlags = true,
     }: EmojifyOptions = {}
 ): string {
     const lines = inputText.split(/\n/);
@@ -40,6 +43,10 @@ export function emojify(
             const emojis = findEmojisForWord(cleanedWord);
 
             if (emojis.length > 0) {
+                if (!allowFlags) {
+                    stripFlags(emojis);
+                }
+
                 const grabEmoji = () => {
                     const emojiIndex = Math.floor(
                         Math.random() * emojis.length
@@ -224,14 +231,35 @@ function findEmojisForWord(word: string): string[] {
     return foundEmojis;
 }
 
+/**
+ * In-place removal of flag emojis from the list.
+ *
+ * @param emojis The list of emojis to strip flags from.
+ */
+function stripFlags(emojis: string[]) {
+    for (let i = emojis.length - 1; i >= 0; i--) {
+        if (isFlagEmoji(emojis[i])) {
+            emojis.splice(i, 1);
+        }
+    }
+}
+
+// https://stackoverflow.com/questions/53360006/detect-with-regex-if-emoji-is-country-flag
+const flagMatcher = /[\uD83C][\uDDE6-\uDDFF][\uD83C][\uDDE6-\uDDFF]/;
+
+function isFlagEmoji(emoji: string): boolean {
+    return emoji.length === 4 && emoji.match(flagMatcher) !== null;
+}
+
 // Adopted from https://github.com/notwaldorf/emoji-translate/blob/master/emoji-translate.js for dependency reasons
 // MIT License, available at https://raw.githubusercontent.com/notwaldorf/emoji-translate/master/LICENSE
 
-const rangeMatcher = [
+const rangeMatcherString = [
     '\uD83C[\uDF00-\uDFFF]', // U+1F300 to U+1F3FF
     '\uD83D[\uDC00-\uDE4F]', // U+1F400 to U+1F64F
     '\uD83D[\uDE80-\uDEFF]', // U+1F680 to U+1F6FF
 ].join('|');
+const rangeMatcher = new RegExp(rangeMatcherString);
 
 /**
  * Returns true for something that's already an emoji like 🤖.

@@ -1,6 +1,6 @@
 {
     "name": "emojify-lyrics",
-    "version": "2.3.0",
+    "version": "2.4.0",
     "description": "Making the world a :slight_smile: place",
     "module": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -32,11 +32,11 @@
         "eslint": "^9.17.0",
         "eslint-plugin-unicorn": "^56.0.1",
         "husky": "^9.1.7",
-        "lint-staged": "^15.2.11",
+        "lint-staged": "^15.3.0",
         "pinst": "^3.0.0",
         "prettier": "^3.4.2",
         "typescript": "^5.7.2",
-        "typescript-eslint": "^8.18.0",
+        "typescript-eslint": "^8.19.0",
         "unicode-emoji-json": "^0.8.0",
         "vitest": "^2.1.8"
     },
@@ -45,5 +45,5 @@
             "pre-commit": "lint-staged"
         }
     },
-    "packageManager": "yarn@4.5.3"
+    "packageManager": "yarn@4.6.0"
 }
