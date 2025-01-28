@@ -7,11 +7,7 @@
     "license": "MIT",
     "author": "Madeline Miller",
     "type": "module",
-    "files": [
-        "dist/",
-        "README.md",
-        "LICENSE"
-    ],
+    "files": ["dist/", "README.md", "LICENSE"],
     "scripts": {
         "prepublish": "yarn generate && yarn build",
         "generate": "node scripts/generateEmojiMap.js",
@@ -29,16 +25,16 @@
         "change-case": "^5.4.4",
         "emoji-platform-data": "^0.2.0",
         "emojilib": "^4.0.1",
-        "eslint": "^9.17.0",
+        "eslint": "^9.19.0",
         "eslint-plugin-unicorn": "^56.0.1",
         "husky": "^9.1.7",
-        "lint-staged": "^15.3.0",
+        "lint-staged": "^15.4.3",
         "pinst": "^3.0.0",
         "prettier": "^3.4.2",
-        "typescript": "^5.7.2",
-        "typescript-eslint": "^8.19.0",
+        "typescript": "^5.7.3",
+        "typescript-eslint": "^8.22.0",
         "unicode-emoji-json": "^0.8.0",
-        "vitest": "^2.1.8"
+        "vitest": "^3.0.4"
     },
     "husky": {
         "hooks": {
