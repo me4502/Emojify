@@ -5,16 +5,39 @@ type EmojiMap = { [key: string]: string[] };
 const emojiMap = emojiMapJson as EmojiMap;
 
 export interface EmojifyOptions {
+    /**
+     * Replace words with emojis instead of appending.
+     */
     replace?: boolean;
-    /* Chance of replacing words with emojis when replace is enabled. 1 means always 0 means never. */
+    /**
+     * Chance of replacing words with emojis when replace is enabled. 1 means always 0 means never.
+     */
     replaceChance?: number;
-    tripleCooldown?: number;
+    /**
+     * Chance of tripling an emoji. 0-1 range.
+     */
     tripleChance?: number;
+    /**
+     * Cooldown period (in number of words) before another emoji can be tripled.
+     */
+    tripleCooldown?: number;
+    /**
+     * Chance of adding multiple emojis for a single word. 0-1 range.
+     */
     multimojiChance?: number;
-    /* Allow flag emojis in the output. */
+    /**
+     * Allow flag emojis in the output.
+     */
     allowFlags?: boolean;
 }
 
+/**
+ * 'Emojify' the given text.
+ *
+ * @param inputText The input text to emojify
+ * @param param1 The options to change how emojification is done
+ * @returns the emojified text, based on the given options
+ */
 export function emojify(
     inputText: string,
     {

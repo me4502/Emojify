@@ -47,16 +47,14 @@ const extractExtraKeywords = extraData => {
         return [];
     }
 
-    const extraKeywords = [];
-
-    extraKeywords.push(
+    const extraKeywords = [
         ...(extraData.emojipedia?.alsoKnownAs ?? []),
         extraData.emojipedia?.appleName,
         ...(extraData.fluemoji?.keywords ?? []),
         ...(extraData.gemoji?.names ?? []),
         ...(extraData.gemoji?.tags ?? []),
-        ...(extraData.twemoji?.keywords ?? [])
-    );
+        ...(extraData.twemoji?.keywords ?? []),
+    ];
 
     return extraKeywords.filter(Boolean);
 };
@@ -109,10 +107,10 @@ for (const [word, emojis] of Object.entries(overrides)) {
 }
 
 for (const word of Object.keys(emojiData)) {
-    emojiData[word] = [...new Set(emojiData[word])].sort();
+    emojiData[word] = [...new Set(emojiData[word])].toSorted();
 }
 
 await fs.writeFile(
     `src/emojiMap.json`,
-    JSON.stringify(emojiData, Object.keys(emojiData).sort(), 0)
+    JSON.stringify(emojiData, Object.keys(emojiData).toSorted(), 0)
 );

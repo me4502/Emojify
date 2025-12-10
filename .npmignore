@@ -9,3 +9,5 @@ src/
 scripts/
 .idea/
 tsconfig.json
+tsconfig.build.json
+tsdown.config.ts

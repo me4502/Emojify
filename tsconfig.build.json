@@ -10,7 +10,9 @@
         "strict": true,
         "noImplicitAny": true,
         "noUnusedLocals": true,
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        "isolatedDeclarations": true
     },
+    "include": ["src/**/*"],
     "exclude": ["node_modules", "dist", "src/__tests__"]
 }
