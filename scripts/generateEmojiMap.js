@@ -36,6 +36,10 @@ const normaliseEmojiName = name => {
     return pascalCase(name).replaceAll(' ', '');
 };
 
+// Locale compare produces a nicer list, but is machine-specific.
+// This ensures consistency.
+const compareStrings = new Intl.Collator('en').compare;
+
 /**
  *
  * @param {import('emoji-platform-data').EmojiPlatformData} extraData
@@ -91,24 +95,20 @@ const emojiData = Object.keys(data).reduce((obj, emojiKey) => {
         obj[word].push(emojiKey);
     }
     return obj;
-}, {});
+}, Object.create(null));
 
 for (const [word, emojis] of Object.entries(overrides)) {
-    if (!emojiData[word]) {
+    if (!Object.hasOwn(emojiData, word)) {
         emojiData[word] = [];
     }
     emojiData[word].push(...emojis);
 }
 
 for (const word of Object.keys(emojiData)) {
-    emojiData[word] = [...new Set(emojiData[word])].toSorted((a, b) => a.localeCompare(b));
+    emojiData[word] = [...new Set(emojiData[word])].toSorted(compareStrings);
 }
 
 await fs.writeFile(
     `src/emojiMap.json`,
-    JSON.stringify(
-        emojiData,
-        Object.keys(emojiData).toSorted((a, b) => a.localeCompare(b)),
-        0
-    )
+    JSON.stringify(emojiData, Object.keys(emojiData).toSorted(compareStrings), 0)
 );

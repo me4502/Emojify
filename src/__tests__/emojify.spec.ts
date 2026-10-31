@@ -101,3 +101,49 @@ describe.each([
         })
     );
 });
+
+describe('emojify edge cases', () => {
+    it(
+        'filters subdivision flags when flags are disabled',
+        mockRandom(0, () => {
+            expect(
+                emojify('england', {
+                    ...EMPTY_SETTINGS,
+                    replace: true,
+                    replaceChance: 1,
+                    allowFlags: false,
+                })
+            ).toBe('💷');
+        })
+    );
+
+    it(
+        'applies triple cooldown across line breaks',
+        mockRandom(0, () => {
+            expect(
+                emojify('house\nhouse', {
+                    ...EMPTY_SETTINGS,
+                    replace: true,
+                    replaceChance: 1,
+                    tripleChance: 1,
+                    tripleCooldown: 2,
+                })
+            ).toBe('🏘️🏘️🏘️\n🏘️');
+        })
+    );
+
+    it(
+        'counts words without emoji matches toward triple cooldown',
+        mockRandom(0, () => {
+            expect(
+                emojify('house unknown tree', {
+                    ...EMPTY_SETTINGS,
+                    replace: true,
+                    replaceChance: 1,
+                    tripleChance: 1,
+                    tripleCooldown: 2,
+                })
+            ).toBe('🏘️🏘️🏘️ unknown 🌲🌲🌲');
+        })
+    );
+});

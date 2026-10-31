@@ -51,16 +51,16 @@ export function emojify(
 ): string {
     const lines = inputText.split(/\n/);
     const outputLines = [];
-    const missingWords = [];
+    let wordsSinceLastTriple = Number.POSITIVE_INFINITY;
 
     for (const line of lines) {
         const words = line.split(' ');
-        let lastTriple = 99999;
 
         for (const [i, word] of words.entries()) {
             if (!word) {
                 continue;
             }
+            wordsSinceLastTriple++;
             const cleanedWord = cleanWord(word);
             const emojis = findEmojisForWord(cleanedWord);
 
@@ -80,20 +80,16 @@ export function emojify(
 
                 let insert = emoji;
 
-                while (Math.random() < multimojiChance && emojis.length > 1) {
+                while (emojis.length > 0 && Math.random() < multimojiChance) {
                     insert += grabEmoji();
                 }
 
-                if (Math.random() < tripleChance && lastTriple >= tripleCooldown) {
+                if (Math.random() < tripleChance && wordsSinceLastTriple >= tripleCooldown) {
                     insert = insert + insert + insert;
-                    lastTriple = 0;
-                } else {
-                    lastTriple++;
+                    wordsSinceLastTriple = 0;
                 }
 
                 words[i] = replace && Math.random() < replaceChance ? insert : `${word} ${insert} `;
-            } else {
-                missingWords.push(cleanedWord);
             }
         }
         outputLines.push(words.join(' '));
@@ -155,7 +151,7 @@ const emojiModFunctions: ((word: string) => string | undefined)[] = [
     w => (w.length > 5 && w.endsWith('ers') ? w.slice(0, Math.max(0, w.length - 4)) : undefined),
     w => (w.length > 4 && w.endsWith('ed') ? w.slice(0, Math.max(0, w.length - 2)) : undefined),
     w =>
-        w.length & 4 && w.endsWith('ies') ? `${w.slice(0, Math.max(0, w.length - 3))}y` : undefined,
+        w.length > 4 && w.endsWith('ies') ? `${w.slice(0, Math.max(0, w.length - 3))}y` : undefined,
     w =>
         w.length > 4 && w.endsWith('ied') ? `${w.slice(0, Math.max(0, w.length - 3))}y` : undefined,
     w => (w.endsWith('ieve') ? `${w.slice(0, Math.max(0, w.length - 2))}f` : undefined),
@@ -205,11 +201,10 @@ function stripFlags(emojis: string[]) {
     }
 }
 
-// https://stackoverflow.com/questions/53360006/detect-with-regex-if-emoji-is-country-flag
-const flagMatcher = /[\uD83C][\uDDE6-\uDDFF][\uD83C][\uDDE6-\uDDFF]/;
+const flagMatcher = /^(?:[\u{1F1E6}-\u{1F1FF}]{2}|\u{1F3F4}[\u{E0061}-\u{E007A}]+\u{E007F})$/u;
 
 function isFlagEmoji(emoji: string): boolean {
-    return emoji.length === 4 && emoji.match(flagMatcher) !== null;
+    return flagMatcher.test(emoji);
 }
 
 // Adopted from https://github.com/notwaldorf/emoji-translate/blob/master/emoji-translate.js for dependency reasons
