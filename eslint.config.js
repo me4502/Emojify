@@ -20,15 +20,9 @@ export default tseslint.config(
             '@typescript-eslint/no-non-null-assertion': 'warn',
             '@typescript-eslint/no-empty-function': 'warn',
             '@typescript-eslint/no-var-requires': 'warn',
-            '@typescript-eslint/no-unused-vars': [
-                'error',
-                { argsIgnorePattern: '^_' },
-            ],
+            '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
             '@typescript-eslint/explicit-module-boundary-types': 'off',
-            '@typescript-eslint/consistent-type-imports': [
-                'error',
-                { prefer: 'type-imports' },
-            ],
+            '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports' }],
             '@typescript-eslint/consistent-type-exports': [
                 'error',
                 { fixMixedExportsWithInlineTypeSpecifier: true },

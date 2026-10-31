@@ -2,7 +2,7 @@
 .eslintrc.js
 .eslintcache
 .lintstagedrc.json
-.prettierrc
+.oxfmtrc.json
 jest.config.js
 src/
 .husky/

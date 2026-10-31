@@ -62,8 +62,7 @@ const emojiData = Object.keys(data).reduce((obj, emojiKey) => {
     const emoji = data[emojiKey];
 
     const extraData =
-        byTitle[normaliseEmojiName(emoji.slug)] ??
-        byTitle[normaliseEmojiName(emoji.name)];
+        byTitle[normaliseEmojiName(emoji.slug)] ?? byTitle[normaliseEmojiName(emoji.name)];
 
     emoji.keywords = lib[emojiKey] || [];
 
@@ -84,11 +83,7 @@ const emojiData = Object.keys(data).reduce((obj, emojiKey) => {
         return a;
     }, []);
     words.push(emoji.name, ...emoji.slug.split('_'));
-    words = [
-        ...new Set(
-            words.map(w => cleanWord(w)).filter(w => !BANNED_WORDS.has(w))
-        ),
-    ];
+    words = [...new Set(words.map(w => cleanWord(w)).filter(w => !BANNED_WORDS.has(w)))];
     for (const word of words) {
         if (!obj[word]) {
             obj[word] = [];
@@ -106,9 +101,7 @@ for (const [word, emojis] of Object.entries(overrides)) {
 }
 
 for (const word of Object.keys(emojiData)) {
-    emojiData[word] = [...new Set(emojiData[word])].toSorted((a, b) =>
-        a.localeCompare(b)
-    );
+    emojiData[word] = [...new Set(emojiData[word])].toSorted((a, b) => a.localeCompare(b));
 }
 
 await fs.writeFile(
