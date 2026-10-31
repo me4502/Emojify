@@ -1,8 +1,6 @@
-.eslintignore
-.eslintrc.js
-.eslintcache
 .lintstagedrc.json
 .oxfmtrc.json
+.oxlintrc.json
 jest.config.js
 src/
 .husky/

@@ -1,5 +1,5 @@
 {
-    "*.{ts,mts,js,mjs}": ["eslint --cache --fix", "oxfmt --write"],
+    "*.{ts,mts,js,mjs}": ["oxlint --fix", "oxfmt --write"],
     "*.html": ["oxfmt --write"],
     "*.css": ["oxfmt --write"],
     "*.json": ["oxfmt --write"]

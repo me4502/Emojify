@@ -1,0 +1,32 @@
+{
+    "$schema": "./node_modules/oxlint/configuration_schema.json",
+    "plugins": ["typescript", "unicorn", "oxc"],
+    "categories": {
+        "correctness": "error",
+        "suspicious": "warn"
+    },
+    "options": {
+        "typeAware": true,
+        "typeCheck": true
+    },
+    "rules": {
+        "typescript/explicit-function-return-type": "off",
+        "typescript/no-non-null-assertion": "warn",
+        "no-empty-function": "warn",
+        "typescript/no-var-requires": "warn",
+        "eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+        "typescript/explicit-module-boundary-types": "off",
+        "typescript/consistent-type-imports": ["error", { "prefer": "type-imports" }],
+        "typescript/consistent-type-exports": [
+            "error",
+            { "fixMixedExportsWithInlineTypeSpecifier": true }
+        ],
+        "unicorn/numeric-separators-style": "off",
+        "unicorn/no-array-reduce": "off",
+        "unicorn/no-array-callback-reference": "off",
+        "unicorn/filename-case": "off"
+    },
+    "env": {
+        "builtin": true
+    }
+}

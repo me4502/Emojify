@@ -57,8 +57,7 @@ export function emojify(
         const words = line.split(' ');
         let lastTriple = 99999;
 
-        for (const i in words) {
-            const word = words[i];
+        for (const [i, word] of words.entries()) {
             if (!word) {
                 continue;
             }

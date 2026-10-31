@@ -2,7 +2,6 @@ import { emojify, type EmojifyOptions } from '../emojify.js';
 import { vi, describe, it, expect } from 'vitest';
 
 function mockRandom(
-    // eslint-disable-next-line unicorn/no-unnecessary-parameters
     value: number,
     fn: (...args: unknown[]) => unknown
 ): (...args: unknown[]) => unknown {
