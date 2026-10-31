@@ -99,7 +99,7 @@ export function emojify(
 
                 words[i] =
                     replace && Math.random() < replaceChance
-                        ? `${insert}`
+                        ? insert
                         : `${word} ${insert} `;
             } else {
                 missingWords.push(cleanedWord);
@@ -111,17 +111,7 @@ export function emojify(
 }
 
 function cleanWord(word: string): string {
-    word = word
-        .trim()
-        .replaceAll('?', '')
-        .replaceAll('!', '')
-        .replaceAll(',', '')
-        .replaceAll(':', '')
-        .replaceAll('"', '')
-        .replaceAll('"', '')
-        .replaceAll('.', '')
-        .replaceAll(')', '')
-        .replaceAll('(', '');
+    word = word.trim().replaceAll(/[?!,:".)(]/g, '');
     return word.toLowerCase();
 }
 
@@ -132,7 +122,7 @@ function findEmojisForWord0(word: string): string[] {
         return foundEmojis;
     }
 
-    if (emojiMap[word]) {
+    if (emojiMap[word] !== undefined) {
         foundEmojis.push(...emojiMap[word]);
     }
 
@@ -153,7 +143,7 @@ const numberToNumeral = new Map([
 ]);
 
 const numeralToNumber = new Map(
-    [...numberToNumeral.entries()].map(([key, val]) => [val, key])
+    [...numberToNumeral].map(([key, val]) => [val, key])
 );
 
 const emojiModFunctions: ((word: string) => string | undefined)[] = [
@@ -278,9 +268,9 @@ function isFlagEmoji(emoji: string): boolean {
 // MIT License, available at https://raw.githubusercontent.com/notwaldorf/emoji-translate/master/LICENSE
 
 const rangeMatcherString = [
-    '\uD83C[\uDF00-\uDFFF]', // U+1F300 to U+1F3FF
-    '\uD83D[\uDC00-\uDE4F]', // U+1F400 to U+1F64F
-    '\uD83D[\uDE80-\uDEFF]', // U+1F680 to U+1F6FF
+    '\u{D83C}[\u{DF00}-\u{DFFF}]', // U+1F300 to U+1F3FF
+    '\u{D83D}[\u{DC00}-\u{DE4F}]', // U+1F400 to U+1F64F
+    '\u{D83D}[\u{DE80}-\u{DEFF}]', // U+1F680 to U+1F6FF
 ].join('|');
 const rangeMatcher = new RegExp(rangeMatcherString);
 

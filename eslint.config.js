@@ -7,7 +7,7 @@ import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 export default tseslint.config(
     eslint.configs.recommended,
     ...tseslint.configs.recommended,
-    eslintPluginUnicorn.configs['flat/recommended'],
+    eslintPluginUnicorn.configs.recommended,
     {
         languageOptions: {
             parserOptions: {
@@ -39,6 +39,9 @@ export default tseslint.config(
             'unicorn/no-array-reduce': 'off',
             'unicorn/no-array-callback-reference': 'off',
             'unicorn/filename-case': 'off',
+            'unicorn/name-replacements': 'off',
+            'unicorn/no-asterisk-prefix-in-documentation-comments': 'off',
+            'unicorn/no-computed-property-existence-check': 'off',
         },
     }
 );

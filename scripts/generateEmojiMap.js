@@ -26,11 +26,10 @@ const cleanWord = word => {
     return word
         .toLowerCase()
         .replaceAll('’', "'")
-        .replaceAll('“', '')
-        .replaceAll('”', '')
-        .replaceAll('\u00A0', ' ')
-        .replaceAll('\u00D7', 'x')
-        .replaceAll('\u2212', '-');
+        .replaceAll(/[“”]/g, '')
+        .replaceAll('\u{A0}', ' ')
+        .replaceAll('\u{D7}', 'x')
+        .replaceAll('\u{2212}', '-');
 };
 
 const normaliseEmojiName = name => {
@@ -107,10 +106,16 @@ for (const [word, emojis] of Object.entries(overrides)) {
 }
 
 for (const word of Object.keys(emojiData)) {
-    emojiData[word] = [...new Set(emojiData[word])].toSorted();
+    emojiData[word] = [...new Set(emojiData[word])].toSorted((a, b) =>
+        a.localeCompare(b)
+    );
 }
 
 await fs.writeFile(
     `src/emojiMap.json`,
-    JSON.stringify(emojiData, Object.keys(emojiData).toSorted(), 0)
+    JSON.stringify(
+        emojiData,
+        Object.keys(emojiData).toSorted((a, b) => a.localeCompare(b)),
+        0
+    )
 );

@@ -4,11 +4,11 @@ exports[`emojify complex > should emojify some text 1`] = `
 "There is a house 🏘️  in New ⚜️  Orleans ⚜️ 
 They 👩‍👩‍👦‍👦  call 📞  the Rising 🏢  Sun ☀️ 
 And it's been the ruin of many a poor boy ♂️ 
-And God, I ℹ️  know I'm one 1️⃣ 
+And God, I 🇰🇮  know I'm one 🏎️ 
 
-My ℹ️  mother 🌬️  was a tailor 🪡 
-She 💁‍♀️  sewed my ℹ️  new ⚜️  blue #️⃣  jeans 👖 
-My ℹ️  father 🎅  was a gamblin' 🎰  man ♂️ 
+My 🇰🇮  mother 🌬️  was a tailor 🪡 
+She 💁‍♀️  sewed my 🇰🇮  new ⚜️  blue #️⃣  jeans 👖 
+My 🇰🇮  father 🎅  was a gamblin' 🎰  man ♂️ 
 Down ↕️  in New ⚜️  Orleans ⚜️ 
 
 Now the only thing 🇹🇭  a gambler 🎰  needs 💩 
@@ -18,18 +18,18 @@ Is when 🌠  he's 💁‍♂️  all drunk 🍶 "
 `;
 
 exports[`emojify complex > should emojify some text with multimoji 1`] = `
-"There is a house 🏘️🏚️🏠🏡🚪🛖🪴  in New ⚜️🆕🇳🇨🇳🇿🇵🇬🌑🌚🎍🗽🚕📰  Orleans ⚜️ 
+"There is a house 🏘️🏚️🏠🏡🪴🚪🛖  in New ⚜️🇳🇨🇳🇿🇵🇬🌑🌚🎍🗽🚕🆕📰  Orleans ⚜️ 
 They 👩‍👩‍👦‍👦  call 📞📲🤙  the Rising 🏢  Sun ☀️⛅⛱️🌄🌅🌆🌇🌞🌤️🌥️🌦️🌻🔅🔆 
-And it's been the ruin of many a poor boy ♂️🏃‍♀️👦👨‍👦👨‍👦‍👦👨‍👧‍👦👨‍👨‍👦👨‍👨‍👦‍👦👨‍👨‍👧‍👦👨‍👩‍👦👨‍👩‍👦‍👦👨‍👩‍👧‍👦👩‍👦👩‍👦‍👦👩‍👧‍👦👩‍👩‍👦👩‍👩‍👦‍👦👩‍👩‍👧‍👦👪👱‍♂️👲👶💁‍♂️💆‍♂️💇‍♂️🕴️🕺🙅‍♂️🙆‍♂️🙇🙇‍♂️🙋‍♂️🙍‍♂️🙎‍♂️🤦‍♂️🤴🤷‍♂️🧒 
-And God, I ℹ️🇰🇮👁️‍🗨️😀😊  know I'm one 1️⃣🏎️🐪🔂🔉🔞🕐🕜🙋🙋‍♀️🙋‍♂️🤨🤪🩱🩲1️⃣👎🔢🕐 
+And it's been the ruin of many a poor boy ♂️🏃‍♀️👦👨‍👦👨‍👦‍👦👨‍👧‍👦👨‍👨‍👦👨‍👨‍👦‍👦👨‍👨‍👧‍👦👨‍👩‍👦👨‍👩‍👦‍👦👨‍👩‍👧‍👦👩‍👦👩‍👦‍👦👩‍👧‍👦👩‍👩‍👦👩‍👩‍👦‍👦👩‍👩‍👧‍👦👪👱‍♂️👲👶💁‍♂️💆‍♂️💇‍♂️🕴️🕺🤦‍♂️🤴🤷‍♂️🧒🙅‍♂️🙆‍♂️🙇🙇‍♂️🙋‍♂️🙍‍♂️🙎‍♂️ 
+And God, I 🇰🇮👁️‍🗨️🤟😀😊  know I'm one 🏎️🐪🔂🔉🔞🕐🕜🤨🤪🩱🩲🙋🙋‍♀️🙋‍♂️1️⃣👎🔢🕐🕜 
 
-My ℹ️🇰🇮👁️‍🗨️😀😊  mother 🌬️👨‍👩‍👦👨‍👩‍👦‍👦👨‍👩‍👧👨‍👩‍👧‍👦👨‍👩‍👧‍👧👩‍👦👩‍👦‍👦👩‍👧👩‍👧‍👦👩‍👧‍👧👩‍👩‍👦👩‍👩‍👦‍👦👩‍👩‍👧👩‍👩‍👧‍👦👩‍👩‍👧‍👧👪🤱🤶👩‍👩‍👦👩‍👩‍👦‍👦👩‍👩‍👧👩‍👩‍👧‍👦  was a tailor 🪡 
-She 💁‍♀️  sewed my ℹ️🇰🇮👁️‍🗨️😀😊  new ⚜️🆕🇳🇨🇳🇿🇵🇬🌑🌚🎍🗽🚕📰  blue #️⃣0️⃣1️⃣2️⃣3️⃣4️⃣5️⃣6️⃣7️⃣8️⃣9️⃣ℹ️↕️↖️↗️↘️↙️↩️↪️⏏️⏩⏪⏫⏬⏭️⏯️⏸️⏹️⏺️Ⓜ️▶️◀️♿➡️⤴️⤵️⬅️⬆️⬇️🅿️🆒🆓🆕🆖🆗🆙🈁🈂️🈳🌀🎦🏧🏳️‍⚧️🐠💎💙💠📘📶🔀🔂🔄🔝🔟🔠🔡🔢🔣🔤🔵🔷🔹🔼🔽😰🙆‍♂️🚇🚙🚭🚮🚰🚹🚻🚾🛂🛃🛄🛅🟦🥶🩵🫐  jeans 👖 
-My ℹ️🇰🇮👁️‍🗨️😀😊  father 🎅👨👨‍👦👨‍👦‍👦👨‍👧👨‍👧‍👦👨‍👧‍👧👨‍👨‍👦👨‍👨‍👦‍👦👨‍👨‍👧👨‍👨‍👧‍👦👨‍👨‍👧‍👧👨‍👩‍👦👨‍👩‍👦‍👦👨‍👩‍👧👨‍👩‍👧‍👦👨‍👩‍👧‍👧👪👨‍👨‍👦👨‍👨‍👦‍👦👨‍👨‍👧👨‍👨‍👧‍👦  was a gamblin' 🎰🎲  man ♂️⛹️‍♂️🇮🇲🎅🏃‍♂️🏃‍♂️‍➡️🏄‍♂️🏊‍♂️🏋️‍♂️🏌️‍♂️👞👦👨👨‍⚕️👨‍⚖️👨‍✈️👨‍❤️‍👨👨‍❤️‍💋‍👨👨‍🌾👨‍🍳👨‍🍼👨‍🎓👨‍🎤👨‍🎨👨‍🏫👨‍🏭👨‍👦👨‍👦‍👦👨‍👧👨‍👧‍👦👨‍👧‍👧👨‍👨‍👦👨‍👨‍👦‍👦👨‍👨‍👧👨‍👨‍👧‍👦👨‍👨‍👧‍👧👨‍👩‍👦👨‍👩‍👦‍👦👨‍👩‍👧👨‍👩‍👧‍👦👨‍👩‍👧‍👧👨‍💻👨‍💼👨‍🔧👨‍🔬👨‍🚀👨‍🚒👨‍🦯👨‍🦯‍➡️👨‍🦰👨‍🦱👨‍🦲👨‍🦳👨‍🦼👨‍🦼‍➡️👨‍🦽👨‍🦽‍➡️👩‍❤️‍👨👩‍❤️‍💋‍👨👪👫👬👮‍♂️👯‍♂️👰‍♂️👱👱‍♂️👲👳👳‍♂️👴👷‍♂️💁‍♂️💂‍♂️💆‍♂️💇‍♂️💏💑🕴️🕵️‍♂️🕺🙅‍♂️🙆‍♂️🙇🙇‍♂️🙋‍♂️🙍‍♂️🙎‍♂️🚣‍♂️🚴‍♂️🚵‍♂️🚶‍♂️🚶‍♂️‍➡️🚹🤦‍♂️🤴🤵🤵‍♂️🤷‍♂️🤸‍♂️🤹‍♂️🤼‍♂️🤽‍♂️🤾‍♂️🦸‍♂️🦹‍♂️🧍‍♂️🧎‍♂️🧎‍♂️‍➡️🧏‍♂️🧑🧓🧔🧔‍♂️🧖‍♂️🧗‍♂️🧘‍♂️🧙‍♂️🧚‍♂️🧛‍♂️🧜‍♂️🧝‍♂️🧞‍♂️🧟‍♂️🫃 
-Down ↕️↘️↙️⏬⤵️⬇️👇👎📉📩🔻🔽🙂‍↕️🙃  in New ⚜️🆕🇳🇨🇳🇿🇵🇬🌑🌚🎍🗽🚕📰  Orleans ⚜️ 
+My 🇰🇮👁️‍🗨️🤟😀😊  mother 🌬️👨‍👩‍👦👨‍👩‍👦‍👦👨‍👩‍👧👨‍👩‍👧‍👦👨‍👩‍👧‍👧👩‍👦👩‍👦‍👦👩‍👧👩‍👧‍👦👩‍👧‍👧👩‍👩‍👦👩‍👩‍👦‍👦👩‍👩‍👧👩‍👩‍👧‍👦👩‍👩‍👧‍👧👪🤱🤶👩‍👩‍👦👩‍👩‍👦‍👦👩‍👩‍👧👩‍👩‍👧‍👦  was a tailor 🪡 
+She 💁‍♀️  sewed my 🇰🇮👁️‍🗨️🤟😀😊  new ⚜️🇳🇨🇳🇿🇵🇬🌑🌚🎍🗽🚕🆕📰  blue #️⃣↕️↖️↗️↘️↙️↩️↪️⏏️⏩⏪⏫⏬⏭️⏯️⏸️⏹️⏺️▶️◀️♿➡️⤴️⤵️⬅️⬆️⬇️🌀🎦🏧🏳️‍⚧️🐠💎💙💠📘📶🔀🔂🔄🔝🔟🔠🔡🔢🔣🔤🔵🔷🔹🔼🔽🥶🩵🫐😰🙆‍♂️🚇🚙🚭🚮🚰🚹🚻🚾🛂🛃🛄🛅🟦0️⃣1️⃣2️⃣3️⃣4️⃣5️⃣6️⃣7️⃣8️⃣9️⃣🆒🆓ℹ️Ⓜ️🆕🆖🆗🅿️🆙🈁🈂️🈳  jeans 👖 
+My 🇰🇮👁️‍🗨️🤟😀😊  father 🎅👨👨‍👦👨‍👦‍👦👨‍👧👨‍👧‍👦👨‍👧‍👧👨‍👨‍👦👨‍👨‍👦‍👦👨‍👨‍👧👨‍👨‍👧‍👦👨‍👨‍👧‍👧👨‍👩‍👦👨‍👩‍👦‍👦👨‍👩‍👧👨‍👩‍👧‍👦👨‍👩‍👧‍👧👪👨‍👨‍👦👨‍👨‍👦‍👦👨‍👨‍👧👨‍👨‍👧‍👦  was a gamblin' 🎰🎲  man ♂️⛹️‍♂️🇮🇲🎅🏃‍♂️🏃‍♂️‍➡️🏄‍♂️🏊‍♂️🏋️‍♂️🏌️‍♂️👞👦👨👨‍⚕️👨‍⚖️👨‍✈️👨‍❤️‍👨👨‍❤️‍💋‍👨👨‍🌾👨‍🍳👨‍🍼👨‍🎓👨‍🎤👨‍🎨👨‍🏫👨‍🏭👨‍👦👨‍👦‍👦👨‍👧👨‍👧‍👦👨‍👧‍👧👨‍👨‍👦👨‍👨‍👦‍👦👨‍👨‍👧👨‍👨‍👧‍👦👨‍👨‍👧‍👧👨‍👩‍👦👨‍👩‍👦‍👦👨‍👩‍👧👨‍👩‍👧‍👦👨‍👩‍👧‍👧👨‍💻👨‍💼👨‍🔧👨‍🔬👨‍🦯👨‍🦯‍➡️👨‍🦰👨‍🦱👨‍🦲👨‍🦳👨‍🦼👨‍🦼‍➡️👨‍🦽👨‍🦽‍➡️👨‍🚀👨‍🚒👩‍❤️‍👨👩‍❤️‍💋‍👨👪👫👬👮‍♂️👯‍♂️👰‍♂️👱👱‍♂️👲👳👳‍♂️👴👷‍♂️💁‍♂️💂‍♂️💆‍♂️💇‍♂️💏💑🕴️🕵️‍♂️🕺🤦‍♂️🤴🤵🤵‍♂️🤷‍♂️🤸‍♂️🤹‍♂️🤼‍♂️🤽‍♂️🤾‍♂️🦸‍♂️🦹‍♂️🧍‍♂️🧎‍♂️🧎‍♂️‍➡️🧏‍♂️🧑🧓🧔🧔‍♂️🧖‍♂️🧗‍♂️🧘‍♂️🧙‍♂️🧚‍♂️🧛‍♂️🧜‍♂️🧝‍♂️🧞‍♂️🧟‍♂️🫃🙅‍♂️🙆‍♂️🙇🙇‍♂️🙋‍♂️🙍‍♂️🙎‍♂️🚣‍♂️🚴‍♂️🚵‍♂️🚶‍♂️🚶‍♂️‍➡️🚹 
+Down ↕️↘️↙️⏬⤵️⬇️👇👎📉📩🔻🔽🫳🙂‍↕️  in New ⚜️🇳🇨🇳🇿🇵🇬🌑🌚🎍🗽🚕🆕📰  Orleans ⚜️ 
 
 Now the only thing 🇹🇭  a gambler 🎰  needs 💩 
-Is a suitcase 💼🛅  and trunk 🪵 
+Is a suitcase 💼🧳  and trunk 🪵 
 And the only time ⌚⌛⏰⏱️⏳🕐🕑🕒🕓🕔🕕🕖🕗🕘🕙🕚🕛🕜🕝🕞🕟🕠🕡🕢🕣🕤🕥🕦🕧  he'll be satisfied 😆 
 Is when 🌠  he's 💁‍♂️  all drunk 🍶🍷🍸🍺🍻🥃 "
 `;
@@ -38,11 +38,11 @@ exports[`emojify complex > should emojify some text with replace mode 1`] = `
 "There is a 🏘️ in ⚜️ ⚜️
 👩‍👩‍👦‍👦 📞 the 🏢 ☀️
 And it's been the ruin of many a poor ♂️
-And God, ℹ️ know I'm 1️⃣
+And God, 🇰🇮 know I'm 🏎️
 
-ℹ️ 🌬️ was a 🪡
-💁‍♀️ sewed ℹ️ ⚜️ #️⃣ 👖
-ℹ️ 🎅 was a 🎰 ♂️
+🇰🇮 🌬️ was a 🪡
+💁‍♀️ sewed 🇰🇮 ⚜️ #️⃣ 👖
+🇰🇮 🎅 was a 🎰 ♂️
 ↕️ in ⚜️ ⚜️
 
 Now the only 🇹🇭 a 🎰 💩
@@ -55,11 +55,11 @@ exports[`emojify complex > should emojify some text with triple mode 1`] = `
 "There is a house 🏘️🏘️🏘️  in New ⚜️⚜️⚜️  Orleans ⚜️⚜️⚜️ 
 They 👩‍👩‍👦‍👦👩‍👩‍👦‍👦👩‍👩‍👦‍👦  call 📞📞📞  the Rising 🏢🏢🏢  Sun ☀️☀️☀️ 
 And it's been the ruin of many a poor boy ♂️♂️♂️ 
-And God, I ℹ️ℹ️ℹ️  know I'm one 1️⃣1️⃣1️⃣ 
+And God, I 🇰🇮🇰🇮🇰🇮  know I'm one 🏎️🏎️🏎️ 
 
-My ℹ️ℹ️ℹ️  mother 🌬️🌬️🌬️  was a tailor 🪡🪡🪡 
-She 💁‍♀️💁‍♀️💁‍♀️  sewed my ℹ️ℹ️ℹ️  new ⚜️⚜️⚜️  blue #️⃣#️⃣#️⃣  jeans 👖👖👖 
-My ℹ️ℹ️ℹ️  father 🎅🎅🎅  was a gamblin' 🎰🎰🎰  man ♂️♂️♂️ 
+My 🇰🇮🇰🇮🇰🇮  mother 🌬️🌬️🌬️  was a tailor 🪡🪡🪡 
+She 💁‍♀️💁‍♀️💁‍♀️  sewed my 🇰🇮🇰🇮🇰🇮  new ⚜️⚜️⚜️  blue #️⃣#️⃣#️⃣  jeans 👖👖👖 
+My 🇰🇮🇰🇮🇰🇮  father 🎅🎅🎅  was a gamblin' 🎰🎰🎰  man ♂️♂️♂️ 
 Down ↕️↕️↕️  in New ⚜️⚜️⚜️  Orleans ⚜️⚜️⚜️ 
 
 Now the only thing 🇹🇭🇹🇭🇹🇭  a gambler 🎰🎰🎰  needs 💩💩💩 
@@ -72,11 +72,11 @@ exports[`emojify complex > should emojify some text without flags 1`] = `
 "There is a house 🏘️  in New ⚜️  Orleans ⚜️ 
 They 👩‍👩‍👦‍👦  call 📞  the Rising 🏢  Sun ☀️ 
 And it's been the ruin of many a poor boy ♂️ 
-And God, I ℹ️  know I'm one 1️⃣ 
+And God, I 👁️‍🗨️  know I'm one 🏎️ 
 
-My ℹ️  mother 🌬️  was a tailor 🪡 
-She 💁‍♀️  sewed my ℹ️  new ⚜️  blue #️⃣  jeans 👖 
-My ℹ️  father 🎅  was a gamblin' 🎰  man ♂️ 
+My 👁️‍🗨️  mother 🌬️  was a tailor 🪡 
+She 💁‍♀️  sewed my 👁️‍🗨️  new ⚜️  blue #️⃣  jeans 👖 
+My 👁️‍🗨️  father 🎅  was a gamblin' 🎰  man ♂️ 
 Down ↕️  in New ⚜️  Orleans ⚜️ 
 
 Now the only thing 🐘  a gambler 🎰  needs 💩 
@@ -87,7 +87,7 @@ Is when 🌠  he's 💁‍♂️  all drunk 🍶 "
 
 exports[`emojify simple > should emojify some text 1`] = `"he 💁‍♂️  see 👀  carrot 🥕  tree 🌲  house 🏘️  is nice relieve 😮‍💨  relief 😅 "`;
 
-exports[`emojify simple > should emojify some text with multimoji 1`] = `"he 💁‍♂️  see 👀👁️🙈🧧  carrot 🥕  tree 🌲🌳🌴🍃🎄🎋🏡  house 🏘️🏚️🏠🏡🚪🛖🪴  is nice relieve 😮‍💨😅  relief 😅😮‍💨 "`;
+exports[`emojify simple > should emojify some text with multimoji 1`] = `"he 💁‍♂️  see 👀👁️🧧🙈  carrot 🥕  tree 🌲🌳🌴🍃🎄🎋🏡  house 🏘️🏚️🏠🏡🪴🚪🛖  is nice relieve 😮‍💨😅  relief 😅😮‍💨 "`;
 
 exports[`emojify simple > should emojify some text with replace mode 1`] = `"💁‍♂️ 👀 🥕 🌲 🏘️ is nice 😮‍💨 😅"`;
 
